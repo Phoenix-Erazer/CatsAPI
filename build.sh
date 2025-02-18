@@ -7,6 +7,7 @@ set -o errexit
 pip install -r requirements.txt
 
 
+set DJANGO_SETTINGS_MODULE=djangoProject.settings.dev
 # Convert static asset files
 python manage.py collectstatic --no-input
 
