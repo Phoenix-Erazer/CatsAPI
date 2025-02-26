@@ -25,3 +25,6 @@ DATABASES = {
         "PORT": int(os.environ["POSTGRES_DB_PORT"]),
     }
 }
+
+DROPBOX_OAUTH2_TOKEN = os.environ.get("DROPBOX_OAUTH2_TOKEN")
+DROPBOX_ROOT_PATH = os.environ.get("DROPBOX_ROOT_PATH", "/cats_images/")

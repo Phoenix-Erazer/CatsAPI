@@ -1,6 +1,5 @@
 from django.db import models
 
-
 class CatImage(models.Model):
     CATEGORY_CHOICES = [
         ("cute", "Милый"),
@@ -10,7 +9,7 @@ class CatImage(models.Model):
     ]
 
     title = models.CharField(max_length=255)
-    image_url = models.URLField()
+    image_url = models.FileField(upload_to="cats_images/", default="default.jpg")
     uploaded_at = models.DateTimeField(auto_now_add=True)
     category = models.CharField(
         max_length=20,
