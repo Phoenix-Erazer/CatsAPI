@@ -11,6 +11,10 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 import os
 from pathlib import Path
+import environ
+env = environ.Env()
+environ.Env.read_env()
+from storages.backends.dropbox import DropBoxStorage
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
@@ -34,6 +38,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "corsheaders",
     "rest_framework",
+    "storages",
     "catalog",
 ]
 
@@ -124,3 +129,9 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 
 CORS_ALLOW_ALL_ORIGINS = True
+
+DEFAULT_FILE_STORAGE = "storages.backends.dropbox.DropBoxStorage"
+
+DROPBOX_OAUTH2_TOKEN = os.getenv("DROPBOX_ACCESS_TOKEN")  # Убедись, что токен загружается!
+DROPBOX_ROOT_PATH = "/media/"
+DROPBOX_TIMEOUT = 100  # Увеличиваем таймаут
