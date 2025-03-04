@@ -130,6 +130,8 @@ REST_FRAMEWORK = {
 }
 
 # Dropbox Settings
-DEFAULT_FILE_STORAGE = "storages.backends.dropbox.DropBoxStorage"
-DROPBOX_OAUTH2_TOKEN = os.getenv("DROPBOX_OAUTH2_TOKEN")
-DROPBOX_ROOT_PATH = os.getenv("DROPBOX_ROOT_PATH", "/cats_images/")
+# DEFAULT_FILE_STORAGE = "storages.backends.dropbox.DropBoxStorage"
+DEFAULT_FILE_STORAGE = "django.core.files.storage.FileSystemStorage"
+
+# DROPBOX_OAUTH2_TOKEN = os.getenv("DROPBOX_OAUTH2_TOKEN")
+# DROPBOX_ROOT_PATH = os.getenv("DROPBOX_ROOT_PATH", "/cats_images/")
